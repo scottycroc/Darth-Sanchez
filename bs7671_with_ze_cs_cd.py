@@ -223,7 +223,9 @@ if st.button("Calculate"):
     st.subheader("Compliance Checks")
     for name, status, tip in checks:
         badge = "✅ Pass" if status else "❌ Fail"
-        st.write(f"**{name}:** {badge}", help=tip)
+        html = f"<span title='{tip}'><strong>{name}:</strong> {badge}</span>"
+        st.markdown(html, unsafe_allow_html=True)
+
 
     # Plot curves
     st.subheader("Time-Current Curves for MCB Types B, C, D")
